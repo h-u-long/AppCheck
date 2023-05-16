@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/home"
+    android:background="@drawable/sang"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
@@ -19,10 +19,10 @@
    <com.google.android.material.tabs.TabLayout
        android:id="@+id/tapLayout"
        android:layout_width="match_parent"
-       app:tabTextColor="#A8A2A2"
-       app:tabSelectedTextColor="#FFFFFF"
+       app:tabTextColor="#333333"
+       app:tabSelectedTextColor="#000000"
        android:layout_height="0dp"
-       app:tabIconTint="#FFFFFF"
+       app:tabIconTint="#000000"
        app:tabMode="fixed"
        android:background="#00ECE382"
        app:layout_constraintTop_toBottomOf="@id/viewPager"

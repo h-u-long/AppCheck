@@ -111,9 +111,20 @@ public class HomeFragment extends Fragment implements HomeInterface{
     public void onSuccess(WeatherCurrent data) {
         if (data.getName() != null && binding != null){
             binding.textviewCity.setText(data.getName());
+
+            // Lấy ngày và giờ hiện tại
             Date date = new Date(Long.valueOf(data.getDt()) * 1000L);
-            SimpleDateFormat sp = new SimpleDateFormat("EE yyyy-MM-dd HH-mm-ss");
-            binding.textviewCurrentTime.setText(sp.format(date));
+            SimpleDateFormat sp = new SimpleDateFormat("EE dd-MM-yyyy HH:mm:ss");
+            String dateTimeString = sp.format(date);
+
+            // Tách ngày và giờ thành 2 chuỗi riêng biệt
+            String[] dateTimeParts = dateTimeString.split(" ");
+            String datePart = dateTimeParts[0] + ", " + dateTimeParts[1];
+            String timePart = dateTimeParts[2];
+
+            // Hiển thị ngày, giờ và các thông tin khác lên giao diện
+            binding.textviewCurrentDate.setText(datePart);
+            binding.textviewCurrentTime.setText(timePart);
             binding.textviewTemperature.setText(String.valueOf(df.format((data.getMain().getTemp()) - KeyTemF.TEMF)));
             binding.textviewTempFeels.setText(String.valueOf(df.format((data.getMain().getFeels_like()) - KeyTemF.TEMF)));
             binding.textviewDetailHumidity.setText(df.format(data.getMain().getHumidity()));

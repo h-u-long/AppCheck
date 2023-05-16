@@ -16,17 +16,17 @@ public class HomePresenter {
         this.homeInterface = homeInterface;
     }
 
-    public void getDataByFragmentHome(String city, String e155ee7f7c3ed9a17f007e27134a9c32){
+    public void getDataByFragmentHome(String city, String e155ee7f7c3ed9a17f007e27134a9c32) {
         Dataservice dataservice = APIService.getService();
         Call<WeatherCurrent> callback = dataservice.getDataCurrentWeather(city, e155ee7f7c3ed9a17f007e27134a9c32);
         callback.enqueue(new Callback<WeatherCurrent>() {
             @Override
             public void onResponse(Call<WeatherCurrent> call, Response<WeatherCurrent> response) {
                 WeatherCurrent weatherCurrent = response.body();
-                if (weatherCurrent != null){
+                if (weatherCurrent != null) {
                     homeInterface.onSuccess(weatherCurrent);
                 } else {
-                    homeInterface.onFailed("Nhập đúng tên thành phố (ví dụ: Tokyo)");
+                    homeInterface.onFailed("Nhập đúng tên thành phố (ví dụ: Huế)");
                 }
             }
 

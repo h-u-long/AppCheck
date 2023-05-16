@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements RecycleViewWeathe
     private RecycleViewWeather16DayAdapter rcv;
     private ViewPagerAdapter adapter;
     private List<Lists> list = new ArrayList<>();
-
    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
